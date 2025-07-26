@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Search, Plus, Clock, Users, BookOpen, Calendar } from 'lucide-react';
+import CreateClassModal from '../components/CreateClassModal';
 
 const Classes = () => {
   const [selectedView, setSelectedView] = useState('grid');
-
-  const classes = [
+  const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
+  const [classes, setClasses] = useState([
     {
       id: 1,
       name: 'Advanced Mathematics',
@@ -71,13 +72,20 @@ const Classes = () => {
       room: 'Computer Lab',
       status: 'Active'
     },
-  ];
+  ]);
+
+  const handleCreateClass = (newClass) => {
+    setClasses(prev => [newClass, ...prev]);
+  };
 
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h1 className="text-3xl font-bold text-gray-900">Classes Management</h1>
-        <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center space-x-2">
+        <button 
+          onClick={() => setIsCreateModalOpen(true)}
+          className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center space-x-2"
+        >
           <Plus className="h-4 w-4" />
           <span>Create Class</span>
         </button>
@@ -183,6 +191,13 @@ const Classes = () => {
           ))}
         </div>
       </div>
+
+      {/* Create Class Modal */}
+      <CreateClassModal
+        isOpen={isCreateModalOpen}
+        onClose={() => setIsCreateModalOpen(false)}
+        onSave={handleCreateClass}
+      />
     </div>
   );
 };

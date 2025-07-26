@@ -9,7 +9,8 @@ import {
   Settings, 
   GraduationCap,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  IndianRupee
 } from 'lucide-react';
 
 const Sidebar = () => {
@@ -21,6 +22,7 @@ const Sidebar = () => {
     { path: '/students', icon: Users, label: 'Students' },
     { path: '/teachers', icon: UserCheck, label: 'Teachers' },
     { path: '/classes', icon: BookOpen, label: 'Classes' },
+    { path: '/fees', icon: IndianRupee, label: 'Fee Management' },
     { path: '/notifications', icon: Bell, label: 'Notifications' },
     { path: '/settings', icon: Settings, label: 'Settings' },
   ];
