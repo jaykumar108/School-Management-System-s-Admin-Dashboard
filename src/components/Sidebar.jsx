@@ -10,7 +10,8 @@ import {
   GraduationCap,
   ChevronLeft,
   ChevronRight,
-  IndianRupee
+  IndianRupee,
+  Calendar
 } from 'lucide-react';
 
 const Sidebar = () => {
@@ -23,6 +24,7 @@ const Sidebar = () => {
     { path: '/teachers', icon: UserCheck, label: 'Teachers' },
     { path: '/classes', icon: BookOpen, label: 'Classes' },
     { path: '/fees', icon: IndianRupee, label: 'Fee Management' },
+    { path: '/holidays', icon: Calendar, label: 'Holiday Calendar' },
     { path: '/notifications', icon: Bell, label: 'Notifications' },
     { path: '/settings', icon: Settings, label: 'Settings' },
   ];

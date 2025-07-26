@@ -7,6 +7,7 @@ import Students from './pages/Students';
 import Teachers from './pages/Teachers';
 import Classes from './pages/Classes';
 import FeeManagement from './pages/FeeManagement';
+import HolidayCalendar from './pages/HolidayCalendar';
 import Notifications from './pages/Notifications';
 import Settings from './pages/Settings';
 import { NotificationProvider } from './context/NotificationContext';
@@ -26,6 +27,7 @@ function App() {
                 <Route path="/teachers" element={<Teachers />} />
                 <Route path="/classes" element={<Classes />} />
                 <Route path="/fees" element={<FeeManagement />} />
+                <Route path="/holidays" element={<HolidayCalendar />} />
                 <Route path="/notifications" element={<Notifications />} />
                 <Route path="/settings" element={<Settings />} />
               </Routes>
