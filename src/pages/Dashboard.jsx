@@ -7,7 +7,7 @@ import {
   Calendar, 
   Clock,
   Award,
-  DollarSign,
+  IndianRupee,
   Activity,
   Target,
   Bell
@@ -37,7 +37,7 @@ const Dashboard = () => {
     { title: 'Total Students', value: '1,234', icon: Users, color: 'bg-blue-500', change: '+12%', trend: 'up' },
     { title: 'Total Teachers', value: '87', icon: UserCheck, color: 'bg-green-500', change: '+3%', trend: 'up' },
     { title: 'Active Classes', value: '156', icon: BookOpen, color: 'bg-purple-500', change: '+8%', trend: 'up' },
-    { title: 'Monthly Revenue', value: '$45,678', icon: DollarSign, color: 'bg-amber-500', change: '+15%', trend: 'up' },
+    { title: 'Monthly Revenue', value: '₹45,678', icon: IndianRupee, color: 'bg-amber-500', change: '+15%', trend: 'up' },
   ];
 
   const enrollmentData = [

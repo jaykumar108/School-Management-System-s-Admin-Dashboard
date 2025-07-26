@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import { Search, Plus, Filter, Edit2, Trash2, Eye } from 'lucide-react';
+import AddStudentModal from '../components/AddStudentModal';
 
 const Students = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedGrade, setSelectedGrade] = useState('all');
-
-  const students = [
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+  const [students, setStudents] = useState([
     { id: 1, name: 'Alice Johnson', email: 'alice@example.com', grade: '10th', class: 'A', status: 'Active', phone: '+1234567890' },
     { id: 2, name: 'Bob Smith', email: 'bob@example.com', grade: '11th', class: 'B', status: 'Active', phone: '+1234567891' },
     { id: 3, name: 'Charlie Brown', email: 'charlie@example.com', grade: '9th', class: 'A', status: 'Inactive', phone: '+1234567892' },
     { id: 4, name: 'Diana Prince', email: 'diana@example.com', grade: '12th', class: 'C', status: 'Active', phone: '+1234567893' },
     { id: 5, name: 'Edward Norton', email: 'edward@example.com', grade: '10th', class: 'B', status: 'Active', phone: '+1234567894' },
     { id: 6, name: 'Fiona Green', email: 'fiona@example.com', grade: '11th', class: 'A', status: 'Active', phone: '+1234567895' },
-  ];
+  ]);
 
   const filteredStudents = students.filter(student => {
     const matchesSearch = student.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -21,11 +22,18 @@ const Students = () => {
     return matchesSearch && matchesGrade;
   });
 
+  const handleAddStudent = (newStudent) => {
+    setStudents(prev => [newStudent, ...prev]);
+  };
+
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h1 className="text-3xl font-bold text-gray-900">Students Management</h1>
-        <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center space-x-2">
+        <button 
+          onClick={() => setIsAddModalOpen(true)}
+          className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center space-x-2"
+        >
           <Plus className="h-4 w-4" />
           <span>Add Student</span>
         </button>
@@ -130,6 +138,13 @@ const Students = () => {
           </table>
         </div>
       </div>
+
+      {/* Add Student Modal */}
+      <AddStudentModal
+        isOpen={isAddModalOpen}
+        onClose={() => setIsAddModalOpen(false)}
+        onSave={handleAddStudent}
+      />
     </div>
   );
 };

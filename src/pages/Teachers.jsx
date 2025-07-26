@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Search, Plus, Filter, Edit2, Trash2, Eye, Mail, Phone } from 'lucide-react';
+import AddTeacherModal from '../components/AddTeacherModal';
 
 const Teachers = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedDepartment, setSelectedDepartment] = useState('all');
-
-  const teachers = [
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+  const [teachers, setTeachers] = useState([
     { 
       id: 1, 
       name: 'Dr. Sarah Wilson', 
@@ -56,7 +57,7 @@ const Teachers = () => {
       experience: '15 years',
       status: 'Active' 
     },
-  ];
+  ]);
 
   const filteredTeachers = teachers.filter(teacher => {
     const matchesSearch = teacher.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -68,11 +69,18 @@ const Teachers = () => {
 
   const departments = ['Mathematics', 'Science', 'English', 'History', 'Arts', 'Physical Education'];
 
+  const handleAddTeacher = (newTeacher) => {
+    setTeachers(prev => [newTeacher, ...prev]);
+  };
+
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h1 className="text-3xl font-bold text-gray-900">Teachers Management</h1>
-        <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center space-x-2">
+        <button 
+          onClick={() => setIsAddModalOpen(true)}
+          className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors flex items-center space-x-2"
+        >
           <Plus className="h-4 w-4" />
           <span>Add Teacher</span>
         </button>
@@ -89,7 +97,7 @@ const Teachers = () => {
                 placeholder="Search teachers..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
               />
             </div>
           </div>
@@ -100,7 +108,7 @@ const Teachers = () => {
               <select
                 value={selectedDepartment}
                 onChange={(e) => setSelectedDepartment(e.target.value)}
-                className="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-500 focus:border-transparent"
               >
                 <option value="all">All Departments</option>
                 {departments.map(dept => (
@@ -117,7 +125,7 @@ const Teachers = () => {
         {filteredTeachers.map((teacher) => (
           <div key={teacher.id} className="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow">
             <div className="flex items-center space-x-4 mb-4">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+              <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-blue-600 rounded-full flex items-center justify-center">
                 <span className="text-white font-bold text-lg">
                   {teacher.name.split(' ').map(n => n[0]).join('')}
                 </span>
@@ -173,6 +181,13 @@ const Teachers = () => {
           </div>
         ))}
       </div>
+
+      {/* Add Teacher Modal */}
+      <AddTeacherModal
+        isOpen={isAddModalOpen}
+        onClose={() => setIsAddModalOpen(false)}
+        onSave={handleAddTeacher}
+      />
     </div>
   );
 };
