@@ -199,7 +199,7 @@ const Dashboard = () => {
       >
         <div>
           <motion.h1 
-            className="text-3xl font-bold text-gray-900"
+            className="text-3xl font-bold text-gray-900 dark:text-white"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
@@ -207,7 +207,7 @@ const Dashboard = () => {
             Dashboard
           </motion.h1>
           <motion.p 
-            className="text-gray-600 mt-1"
+            className="text-gray-600 dark:text-gray-400 mt-1"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
@@ -231,7 +231,7 @@ const Dashboard = () => {
             <span>Test Notification</span>
           </motion.button>
           <motion.div 
-            className="text-sm text-gray-500 bg-white px-4 py-2 rounded-lg shadow-sm"
+            className="text-sm text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 px-4 py-2 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700"
             whileHover={{ scale: 1.02 }}
           >
             Last updated: {new Date().toLocaleString()}
@@ -249,7 +249,7 @@ const Dashboard = () => {
           return (
             <motion.div 
               key={stat.title} 
-              className="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-all duration-200 border border-gray-100 cursor-pointer"
+              className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 hover:shadow-md transition-all duration-200 border border-gray-100 dark:border-gray-700 cursor-pointer"
               variants={cardVariants}
               whileHover="hover"
               whileTap={{ scale: 0.98 }}
@@ -257,9 +257,9 @@ const Dashboard = () => {
             >
               <div className="flex items-center justify-between">
                 <div className="flex-1">
-                  <p className="text-sm font-medium text-gray-600 mb-1">{stat.title}</p>
+                  <p className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">{stat.title}</p>
                   <motion.p 
-                    className="text-3xl font-bold text-gray-900 mb-2"
+                    className="text-3xl font-bold text-gray-900 dark:text-white mb-2"
                     initial={{ scale: 0.8, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
@@ -274,8 +274,8 @@ const Dashboard = () => {
                     >
                       <TrendingUp className="h-4 w-4 text-green-500 mr-1" />
                     </motion.div>
-                    <span className="text-green-600 text-sm font-medium">{stat.change}</span>
-                    <span className="text-gray-500 text-sm ml-1">vs last month</span>
+                    <span className="text-green-600 dark:text-green-400 text-sm font-medium">{stat.change}</span>
+                    <span className="text-gray-500 dark:text-gray-400 text-sm ml-1">vs last month</span>
                   </div>
                 </div>
                 <motion.div 
@@ -300,20 +300,20 @@ const Dashboard = () => {
       >
         {/* Enrollment Trends */}
         <motion.div 
-          className="bg-white rounded-xl shadow-sm p-6 border border-gray-100"
+          className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 border border-gray-100 dark:border-gray-700"
           variants={chartVariants}
           whileHover={{ y: -2, boxShadow: "0 10px 25px rgba(0,0,0,0.1)" }}
         >
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-xl font-semibold text-gray-900">Enrollment Trends</h2>
+            <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Enrollment Trends</h2>
             <div className="flex items-center space-x-4 text-sm">
               <div className="flex items-center">
                 <div className="w-3 h-3 bg-blue-500 rounded-full mr-2"></div>
-                <span className="text-gray-600">Students</span>
+                <span className="text-gray-600 dark:text-gray-400">Students</span>
               </div>
               <div className="flex items-center">
                 <div className="w-3 h-3 bg-green-500 rounded-full mr-2"></div>
-                <span className="text-gray-600">Teachers</span>
+                <span className="text-gray-600 dark:text-gray-400">Teachers</span>
               </div>
             </div>
           </div>
@@ -362,12 +362,12 @@ const Dashboard = () => {
 
         {/* Subject Performance */}
         <motion.div 
-          className="bg-white rounded-xl shadow-sm p-6 border border-gray-100"
+          className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 border border-gray-100 dark:border-gray-700"
           variants={chartVariants}
           whileHover={{ y: -2, boxShadow: "0 10px 25px rgba(0,0,0,0.1)" }}
         >
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-xl font-semibold text-gray-900">Subject Performance</h2>
+            <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Subject Performance</h2>
             <motion.div
               whileHover={{ rotate: 360 }}
               transition={{ duration: 0.6 }}
@@ -405,12 +405,12 @@ const Dashboard = () => {
       >
         {/* Grade Distribution */}
         <motion.div 
-          className="bg-white rounded-xl shadow-sm p-6 border border-gray-100"
+          className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 border border-gray-100 dark:border-gray-700"
           variants={cardVariants}
           whileHover={{ y: -2, boxShadow: "0 10px 25px rgba(0,0,0,0.1)" }}
         >
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-xl font-semibold text-gray-900">Grade Distribution</h2>
+            <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Grade Distribution</h2>
             <motion.div
               whileHover={{ rotate: 360 }}
               transition={{ duration: 0.6 }}
@@ -456,7 +456,7 @@ const Dashboard = () => {
                   className="w-3 h-3 rounded-full mr-2" 
                   style={{ backgroundColor: item.color }}
                 ></div>
-                <span className="text-gray-600">{item.grade}: {item.count}</span>
+                <span className="text-gray-600 dark:text-gray-400">{item.grade}: {item.count}</span>
               </motion.div>
             ))}
           </div>
@@ -464,12 +464,12 @@ const Dashboard = () => {
 
         {/* Weekly Attendance */}
         <motion.div 
-          className="bg-white rounded-xl shadow-sm p-6 border border-gray-100"
+          className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 border border-gray-100 dark:border-gray-700"
           variants={cardVariants}
           whileHover={{ y: -2, boxShadow: "0 10px 25px rgba(0,0,0,0.1)" }}
         >
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-xl font-semibold text-gray-900">Weekly Attendance</h2>
+            <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Weekly Attendance</h2>
             <motion.div
               whileHover={{ rotate: 360 }}
               transition={{ duration: 0.6 }}
@@ -501,7 +501,7 @@ const Dashboard = () => {
             </LineChart>
           </ResponsiveContainer>
           <div className="mt-4 text-center">
-            <p className="text-sm text-gray-600">Average: <span className="font-semibold text-green-600">89.3%</span></p>
+            <p className="text-sm text-gray-600 dark:text-gray-400">Average: <span className="font-semibold text-green-600 dark:text-green-400">89.3%</span></p>
           </div>
         </motion.div>
 
@@ -581,11 +581,11 @@ const Dashboard = () => {
       >
         {/* Recent Activities */}
         <motion.div 
-          className="bg-white rounded-xl shadow-sm p-6 border border-gray-100"
+          className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 border border-gray-100 dark:border-gray-700"
           variants={cardVariants}
           whileHover={{ y: -2, boxShadow: "0 10px 25px rgba(0,0,0,0.1)" }}
         >
-          <h2 className="text-xl font-semibold text-gray-900 mb-6 flex items-center">
+          <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-6 flex items-center">
             <motion.div
               whileHover={{ rotate: 360 }}
               transition={{ duration: 0.6 }}
@@ -598,7 +598,7 @@ const Dashboard = () => {
             {recentActivities.map((activity, index) => (
               <motion.div 
                 key={activity.id} 
-                className="flex items-center space-x-4 p-4 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer"
+                className="flex items-center space-x-4 p-4 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors cursor-pointer"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.4, delay: 0.6 + index * 0.1 }}
@@ -609,10 +609,10 @@ const Dashboard = () => {
                   whileHover={{ scale: 1.5 }}
                 ></motion.div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium text-gray-900 truncate">{activity.action}</p>
-                  <p className="text-sm text-gray-600 truncate">{activity.name}</p>
+                  <p className="text-sm font-medium text-gray-900 dark:text-white truncate">{activity.action}</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 truncate">{activity.name}</p>
                 </div>
-                <div className="flex items-center text-xs text-gray-500 flex-shrink-0">
+                <div className="flex items-center text-xs text-gray-500 dark:text-gray-400 flex-shrink-0">
                   <Clock className="h-3 w-3 mr-1" />
                   {activity.time}
                 </div>
@@ -620,7 +620,7 @@ const Dashboard = () => {
             ))}
           </div>
           <motion.button 
-            className="w-full mt-4 text-blue-600 hover:text-blue-800 text-sm font-medium py-2 border-t border-gray-100"
+            className="w-full mt-4 text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 text-sm font-medium py-2 border-t border-gray-100 dark:border-gray-700"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
@@ -630,11 +630,11 @@ const Dashboard = () => {
 
         {/* Upcoming Events */}
         <motion.div 
-          className="bg-white rounded-xl shadow-sm p-6 border border-gray-100"
+          className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 border border-gray-100 dark:border-gray-700"
           variants={cardVariants}
           whileHover={{ y: -2, boxShadow: "0 10px 25px rgba(0,0,0,0.1)" }}
         >
-          <h2 className="text-xl font-semibold text-gray-900 mb-6 flex items-center">
+          <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-6 flex items-center">
             <motion.div
               whileHover={{ rotate: 360 }}
               transition={{ duration: 0.6 }}
@@ -647,24 +647,24 @@ const Dashboard = () => {
             {upcomingEvents.map((event, index) => (
               <motion.div 
                 key={event.id} 
-                className="flex items-center space-x-4 p-4 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer"
+                className="flex items-center space-x-4 p-4 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors cursor-pointer"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.4, delay: 0.7 + index * 0.1 }}
                 whileHover={{ x: 5, backgroundColor: "#f9fafb" }}
               >
                 <motion.div 
-                  className="bg-blue-100 p-3 rounded-lg flex-shrink-0"
+                  className="bg-blue-100 dark:bg-blue-900/20 p-3 rounded-lg flex-shrink-0"
                   whileHover={{ scale: 1.1, rotate: 5 }}
                 >
-                  <Calendar className="h-4 w-4 text-blue-600" />
+                  <Calendar className="h-4 w-4 text-blue-600 dark:text-blue-400" />
                 </motion.div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium text-gray-900 truncate">{event.title}</p>
-                  <p className="text-sm text-gray-600">{event.date} at {event.time}</p>
+                  <p className="text-sm font-medium text-gray-900 dark:text-white truncate">{event.title}</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">{event.date} at {event.time}</p>
                 </div>
                 <motion.button 
-                  className="text-blue-600 hover:text-blue-800 text-sm font-medium flex-shrink-0"
+                  className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 text-sm font-medium flex-shrink-0"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                 >
@@ -674,7 +674,7 @@ const Dashboard = () => {
             ))}
           </div>
           <motion.button 
-            className="w-full mt-4 text-green-600 hover:text-green-800 text-sm font-medium py-2 border-t border-gray-100"
+            className="w-full mt-4 text-green-600 dark:text-green-400 hover:text-green-800 dark:hover:text-green-300 text-sm font-medium py-2 border-t border-gray-100 dark:border-gray-700"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >

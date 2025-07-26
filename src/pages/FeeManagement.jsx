@@ -123,10 +123,10 @@ const FeeManagement = () => {
 
   const getStatusColor = (status) => {
     switch (status) {
-      case 'Paid': return 'bg-green-100 text-green-800';
-      case 'Pending': return 'bg-yellow-100 text-yellow-800';
-      case 'Overdue': return 'bg-red-100 text-red-800';
-      default: return 'bg-gray-100 text-gray-800';
+      case 'Paid': return 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200';
+      case 'Pending': return 'bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200';
+      case 'Overdue': return 'bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200';
+      default: return 'bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200';
     }
   };
 
@@ -146,7 +146,7 @@ const FeeManagement = () => {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold text-gray-900">Fee Management</h1>
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Fee Management</h1>
         <button 
           onClick={() => setIsAddModalOpen(true)}
           className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center space-x-2"
@@ -158,57 +158,57 @@ const FeeManagement = () => {
 
       {/* Statistics Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 border border-gray-100 dark:border-gray-700">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm font-medium text-gray-600 mb-1">Total Fees</p>
-              <p className="text-2xl font-bold text-gray-900">₹{totalFees.toLocaleString()}</p>
+              <p className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">Total Fees</p>
+              <p className="text-2xl font-bold text-gray-900 dark:text-white">₹{totalFees.toLocaleString()}</p>
             </div>
-            <div className="bg-blue-100 p-3 rounded-lg">
-              <IndianRupee className="h-6 w-6 text-blue-600" />
+            <div className="bg-blue-100 dark:bg-blue-900/20 p-3 rounded-lg">
+              <IndianRupee className="h-6 w-6 text-blue-600 dark:text-blue-400" />
             </div>
           </div>
         </div>
 
-        <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 border border-gray-100 dark:border-gray-700">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm font-medium text-gray-600 mb-1">Paid Fees</p>
-              <p className="text-2xl font-bold text-green-600">₹{paidFees.toLocaleString()}</p>
+              <p className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">Paid Fees</p>
+              <p className="text-2xl font-bold text-green-600 dark:text-green-400">₹{paidFees.toLocaleString()}</p>
             </div>
-            <div className="bg-green-100 p-3 rounded-lg">
-              <CheckCircle className="h-6 w-6 text-green-600" />
+            <div className="bg-green-100 dark:bg-green-900/20 p-3 rounded-lg">
+              <CheckCircle className="h-6 w-6 text-green-600 dark:text-green-400" />
             </div>
           </div>
         </div>
 
-        <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 border border-gray-100 dark:border-gray-700">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm font-medium text-gray-600 mb-1">Pending Fees</p>
-              <p className="text-2xl font-bold text-yellow-600">₹{pendingFees.toLocaleString()}</p>
+              <p className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">Pending Fees</p>
+              <p className="text-2xl font-bold text-yellow-600 dark:text-yellow-400">₹{pendingFees.toLocaleString()}</p>
             </div>
-            <div className="bg-yellow-100 p-3 rounded-lg">
-              <Clock className="h-6 w-6 text-yellow-600" />
+            <div className="bg-yellow-100 dark:bg-yellow-900/20 p-3 rounded-lg">
+              <Clock className="h-6 w-6 text-yellow-600 dark:text-yellow-400" />
             </div>
           </div>
         </div>
 
-        <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 border border-gray-100 dark:border-gray-700">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm font-medium text-gray-600 mb-1">Overdue Fees</p>
-              <p className="text-2xl font-bold text-red-600">₹{overdueFees.toLocaleString()}</p>
+              <p className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">Overdue Fees</p>
+              <p className="text-2xl font-bold text-red-600 dark:text-red-400">₹{overdueFees.toLocaleString()}</p>
             </div>
-            <div className="bg-red-100 p-3 rounded-lg">
-              <AlertCircle className="h-6 w-6 text-red-600" />
+            <div className="bg-red-100 dark:bg-red-900/20 p-3 rounded-lg">
+              <AlertCircle className="h-6 w-6 text-red-600 dark:text-red-400" />
             </div>
           </div>
         </div>
       </div>
 
       {/* Filters */}
-      <div className="bg-white rounded-xl shadow-sm p-6">
+      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 border border-gray-100 dark:border-gray-700">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between space-y-4 md:space-y-0 md:space-x-4">
           <div className="flex-1 max-w-md">
             <div className="relative">
@@ -218,18 +218,18 @@ const FeeManagement = () => {
                 placeholder="Search by student name, ID, or fee type..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
               />
             </div>
           </div>
           
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-2">
-              <Filter className="h-4 w-4 text-gray-500" />
+              <Filter className="h-4 w-4 text-gray-500 dark:text-gray-400" />
               <select
                 value={selectedStatus}
                 onChange={(e) => setSelectedStatus(e.target.value)}
-                className="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
               >
                 <option value="all">All Status</option>
                 <option value="Paid">Paid</option>
@@ -238,11 +238,11 @@ const FeeManagement = () => {
               </select>
             </div>
             <div className="flex items-center space-x-2">
-              <Calendar className="h-4 w-4 text-gray-500" />
+              <Calendar className="h-4 w-4 text-gray-500 dark:text-gray-400" />
               <select
                 value={selectedMonth}
                 onChange={(e) => setSelectedMonth(e.target.value)}
-                className="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
               >
                 <option value="all">All Months</option>
                 {months.map(month => (
@@ -255,23 +255,23 @@ const FeeManagement = () => {
       </div>
 
       {/* Fee Records Table */}
-      <div className="bg-white rounded-xl shadow-sm overflow-hidden">
+      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm overflow-hidden border border-gray-100 dark:border-gray-700">
         <div className="overflow-x-auto">
           <table className="w-full">
-            <thead className="bg-gray-50 border-b border-gray-200">
+            <thead className="bg-gray-50 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-600">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Student</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Fee Details</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Amount</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Due Date</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Payment Info</th>
-                <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Student</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Fee Details</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Amount</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Due Date</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Status</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Payment Info</th>
+                <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-200">
+            <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
               {filteredRecords.map((record) => (
-                <tr key={record.id} className="hover:bg-gray-50 transition-colors">
+                <tr key={record.id} className="hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="flex items-center">
                       <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
@@ -280,22 +280,22 @@ const FeeManagement = () => {
                         </span>
                       </div>
                       <div className="ml-4">
-                        <div className="text-sm font-medium text-gray-900">{record.studentName}</div>
-                        <div className="text-sm text-gray-500">{record.studentId} • {record.className}</div>
+                        <div className="text-sm font-medium text-gray-900 dark:text-white">{record.studentName}</div>
+                        <div className="text-sm text-gray-500 dark:text-gray-400">{record.studentId} • {record.className}</div>
                       </div>
                     </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-gray-900">{record.feeType}</div>
-                    <div className="text-sm text-gray-500">{record.receiptNo && `Receipt: ${record.receiptNo}`}</div>
+                    <div className="text-sm text-gray-900 dark:text-white">{record.feeType}</div>
+                    <div className="text-sm text-gray-500 dark:text-gray-400">{record.receiptNo && `Receipt: ${record.receiptNo}`}</div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm font-medium text-gray-900">₹{record.amount.toLocaleString()}</div>
+                    <div className="text-sm font-medium text-gray-900 dark:text-white">₹{record.amount.toLocaleString()}</div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-gray-900">{new Date(record.dueDate).toLocaleDateString()}</div>
+                    <div className="text-sm text-gray-900 dark:text-white">{new Date(record.dueDate).toLocaleDateString()}</div>
                     {record.paidDate && (
-                      <div className="text-sm text-gray-500">Paid: {new Date(record.paidDate).toLocaleDateString()}</div>
+                      <div className="text-sm text-gray-500 dark:text-gray-400">Paid: {new Date(record.paidDate).toLocaleDateString()}</div>
                     )}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
@@ -305,23 +305,23 @@ const FeeManagement = () => {
                     </span>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-gray-900">{record.paymentMethod || '-'}</div>
+                    <div className="text-sm text-gray-900 dark:text-white">{record.paymentMethod || '-'}</div>
                     {record.remarks && (
-                      <div className="text-sm text-gray-500">{record.remarks}</div>
+                      <div className="text-sm text-gray-500 dark:text-gray-400">{record.remarks}</div>
                     )}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                     <div className="flex items-center justify-end space-x-2">
-                      <button className="text-blue-600 hover:text-blue-900 p-1 rounded hover:bg-blue-50">
+                      <button className="text-blue-600 dark:text-blue-400 hover:text-blue-900 dark:hover:text-blue-300 p-1 rounded hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors">
                         <Eye className="h-4 w-4" />
                       </button>
-                      <button className="text-gray-600 hover:text-gray-900 p-1 rounded hover:bg-gray-50">
+                      <button className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-300 p-1 rounded hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
                         <Edit2 className="h-4 w-4" />
                       </button>
-                      <button className="text-green-600 hover:text-green-900 p-1 rounded hover:bg-green-50">
+                      <button className="text-green-600 dark:text-green-400 hover:text-green-900 dark:hover:text-green-300 p-1 rounded hover:bg-green-50 dark:hover:bg-green-900/20 transition-colors">
                         <Download className="h-4 w-4" />
                       </button>
-                      <button className="text-red-600 hover:text-red-900 p-1 rounded hover:bg-red-50">
+                      <button className="text-red-600 dark:text-red-400 hover:text-red-900 dark:hover:text-red-300 p-1 rounded hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors">
                         <Trash2 className="h-4 w-4" />
                       </button>
                     </div>
@@ -335,23 +335,23 @@ const FeeManagement = () => {
 
       {/* Quick Actions */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-            <TrendingUp className="h-5 w-5 mr-2 text-blue-600" />
+        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 border border-gray-100 dark:border-gray-700">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
+            <TrendingUp className="h-5 w-5 mr-2 text-blue-600 dark:text-blue-400" />
             Fee Collection Report
           </h3>
           <div className="space-y-3">
             <div className="flex justify-between items-center">
-              <span className="text-sm text-gray-600">This Month</span>
-              <span className="text-sm font-medium text-gray-900">₹{paidFees.toLocaleString()}</span>
+              <span className="text-sm text-gray-600 dark:text-gray-400">This Month</span>
+              <span className="text-sm font-medium text-gray-900 dark:text-white">₹{paidFees.toLocaleString()}</span>
             </div>
             <div className="flex justify-between items-center">
-              <span className="text-sm text-gray-600">Pending</span>
-              <span className="text-sm font-medium text-yellow-600">₹{pendingFees.toLocaleString()}</span>
+              <span className="text-sm text-gray-600 dark:text-gray-400">Pending</span>
+              <span className="text-sm font-medium text-yellow-600 dark:text-yellow-400">₹{pendingFees.toLocaleString()}</span>
             </div>
             <div className="flex justify-between items-center">
-              <span className="text-sm text-gray-600">Overdue</span>
-              <span className="text-sm font-medium text-red-600">₹{overdueFees.toLocaleString()}</span>
+              <span className="text-sm text-gray-600 dark:text-gray-400">Overdue</span>
+              <span className="text-sm font-medium text-red-600 dark:text-red-400">₹{overdueFees.toLocaleString()}</span>
             </div>
           </div>
           <button className="w-full mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
@@ -359,16 +359,16 @@ const FeeManagement = () => {
           </button>
         </div>
 
-        <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-            <Users className="h-5 w-5 mr-2 text-green-600" />
+        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 border border-gray-100 dark:border-gray-700">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
+            <Users className="h-5 w-5 mr-2 text-green-600 dark:text-green-400" />
             Defaulters List
           </h3>
           <div className="space-y-2">
             {feeRecords.filter(record => record.status === 'Overdue').slice(0, 3).map(record => (
-              <div key={record.id} className="flex justify-between items-center p-2 bg-red-50 rounded">
-                <span className="text-sm font-medium text-gray-900">{record.studentName}</span>
-                <span className="text-sm text-red-600">₹{record.amount.toLocaleString()}</span>
+              <div key={record.id} className="flex justify-between items-center p-2 bg-red-50 dark:bg-red-900/20 rounded">
+                <span className="text-sm font-medium text-gray-900 dark:text-white">{record.studentName}</span>
+                <span className="text-sm text-red-600 dark:text-red-400">₹{record.amount.toLocaleString()}</span>
               </div>
             ))}
           </div>
@@ -377,9 +377,9 @@ const FeeManagement = () => {
           </button>
         </div>
 
-        <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-            <FileText className="h-5 w-5 mr-2 text-purple-600" />
+        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 border border-gray-100 dark:border-gray-700">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
+            <FileText className="h-5 w-5 mr-2 text-purple-600 dark:text-purple-400" />
             Quick Actions
           </h3>
           <div className="space-y-3">

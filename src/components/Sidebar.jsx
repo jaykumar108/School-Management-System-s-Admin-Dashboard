@@ -1,25 +1,24 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { 
-  Home, 
+  LayoutDashboard, 
   Users, 
   UserCheck, 
   BookOpen, 
+  IndianRupee, 
+  Calendar, 
   Bell, 
-  Settings, 
-  GraduationCap,
+  Settings,
   ChevronLeft,
-  ChevronRight,
-  IndianRupee,
-  Calendar
+  ChevronRight
 } from 'lucide-react';
 
 const Sidebar = () => {
-  const [collapsed, setCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(false);
   const location = useLocation();
 
   const menuItems = [
-    { path: '/', icon: Home, label: 'Dashboard' },
+    { path: '/', icon: LayoutDashboard, label: 'Dashboard' },
     { path: '/students', icon: Users, label: 'Students' },
     { path: '/teachers', icon: UserCheck, label: 'Teachers' },
     { path: '/classes', icon: BookOpen, label: 'Classes' },
@@ -30,50 +29,50 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className={`bg-white shadow-xl transition-all duration-300 ${collapsed ? 'w-16' : 'w-64'}`}>
-      <div className="p-4 border-b border-gray-200">
-        <div className="flex items-center justify-between">
-          {!collapsed && (
-            <div className="flex items-center space-x-2">
-              <GraduationCap className="h-8 w-8 text-blue-600" />
-              <span className="text-xl font-bold text-gray-800">EduAdmin</span>
-            </div>
+    <div className={`bg-white dark:bg-gray-800 shadow-sm border-r border-gray-200 dark:border-gray-700 transition-all duration-300 ${
+      isCollapsed ? 'w-16' : 'w-64'
+    }`}>
+      <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
+        {!isCollapsed && (
+          <h1 className="text-xl font-bold text-gray-900 dark:text-white">Admin</h1>
+        )}
+        <button
+          onClick={() => setIsCollapsed(!isCollapsed)}
+          className="p-1 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+        >
+          {isCollapsed ? (
+            <ChevronRight className="h-4 w-4 text-gray-600 dark:text-gray-300" />
+          ) : (
+            <ChevronLeft className="h-4 w-4 text-gray-600 dark:text-gray-300" />
           )}
-          <button
-            onClick={() => setCollapsed(!collapsed)}
-            className="p-1 rounded-lg hover:bg-gray-100 transition-colors"
-          >
-            {collapsed ? (
-              <ChevronRight className="h-5 w-5 text-gray-600" />
-            ) : (
-              <ChevronLeft className="h-5 w-5 text-gray-600" />
-            )}
-          </button>
-        </div>
+        </button>
       </div>
-
-      <nav className="mt-6">
-        {menuItems.map((item) => {
-          const Icon = item.icon;
-          const isActive = location.pathname === item.path;
-          
-          return (
-            <Link
-              key={item.path}
-              to={item.path}
-              className={`flex items-center px-4 py-3 mx-2 rounded-lg transition-all duration-200 group ${
-                isActive
-                  ? 'bg-blue-600 text-white shadow-lg'
-                  : 'text-gray-600 hover:bg-blue-50 hover:text-blue-600'
-              }`}
-            >
-              <Icon className={`h-5 w-5 ${collapsed ? 'mx-auto' : 'mr-3'}`} />
-              {!collapsed && (
-                <span className="font-medium">{item.label}</span>
-              )}
-            </Link>
-          );
-        })}
+      
+      <nav className="p-4">
+        <ul className="space-y-2">
+          {menuItems.map((item) => {
+            const Icon = item.icon;
+            const isActive = location.pathname === item.path;
+            
+            return (
+              <li key={item.path}>
+                <Link
+                  to={item.path}
+                  className={`flex items-center px-3 py-2 rounded-lg transition-colors ${
+                    isActive
+                      ? 'bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300'
+                      : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+                  }`}
+                >
+                  <Icon className="h-5 w-5 flex-shrink-0" />
+                  {!isCollapsed && (
+                    <span className="ml-3 font-medium">{item.label}</span>
+                  )}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
       </nav>
     </div>
   );
